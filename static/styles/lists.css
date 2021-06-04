@@ -1,0 +1,49 @@
+.add-button {
+    display: inline-flex;
+    padding: 0 10px 0 10px;
+    justify-content: center;
+    color: green;
+    background-color: lightgreen;
+    border: 1px solid green;
+    border-radius: 50px;
+}
+
+.add-button:hover {
+    background-color: green;
+    text-decoration: none;
+    color: white;
+}
+
+.edit-button {
+    display: inline-flex;
+    padding: 0 10px 0 10px;
+    justify-content: center;
+    color: blueviolet;
+    background-color: lightgrey;
+    border: 1px solid blueviolet;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.edit-button:hover {
+    background-color: blueviolet;
+    text-decoration: none;
+    color: lightgray;
+}
+
+.delete-button {
+    display: inline-flex;
+    padding: 0 10px 0 10px;
+    justify-content: center;
+    color: red;
+    background-color: lightcoral;
+    border: 1px solid red;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.delete-button:hover {
+    background-color: red;
+    text-decoration: none;
+    color: lightcoral;
+}

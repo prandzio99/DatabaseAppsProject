@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static '/styles/lists.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="contains-table">
+    <table class="table table-borderless">
+        <thead class="border-bottom font-weight-bold">
+            <tr>
+                <td>Address</td>
+                <td>
+                    <a href="{% url 'add_address' %}" class="add-button">
+                        ADD
+                    </a>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for address in addresses %}
+                <tr>
+                    <td>{{address}}</td>
+                    <td>
+                        <a href="{% url 'edit_address' address.id %}" class="edit-button">
+                            EDIT
+                        </a>
+                        <form action="{% url 'delete_address' address.id %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-button">
+                                DELETE
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

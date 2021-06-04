@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static '/styles/lists.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="contains-table">
+    <table class="table table-borderless">
+        <thead class="border-bottom font-weight-bold">
+            <tr>
+                <td>Book-Tag Pair</td>
+                <td>
+                    <a href="{% url 'add_booktag' %}" class="add-button">
+                        ADD
+                    </a>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in booktags %}
+                <tr>
+                    <td>{{item}}</td>
+                    <td>
+                        <a href="{% url 'edit_booktag' item.id %}" class="edit-button">
+                            EDIT
+                        </a>
+                        <form action="{% url 'delete_booktag' item.id %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-button">
+                                DELETE
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

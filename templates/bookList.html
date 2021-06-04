@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static '/styles/lists.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="contains-table">
+    <table class="table table-borderless">
+        <thead class="border-bottom font-weight-bold">
+            <tr>
+                <td>Title</td>
+                <td>Author</td>
+                <td>Release Year</td>
+                <td>Publisher</td>
+                <td>Rating</td>
+                <td>
+                    <a href="{% url 'add_book' %}" class="add-button">
+                        ADD
+                    </a>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.release_year}}</td>
+                    <td>{{book.publisher}}</td>
+                    <td>{{book.rating}}/5</td>
+                    <td>
+                        <a href="{% url 'edit_book' book.id %}" class="edit-button">
+                            EDIT
+                        </a>
+                        <form action="{% url 'delete_book' book.id %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-button">
+                                DELETE
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

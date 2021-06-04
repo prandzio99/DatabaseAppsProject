@@ -1,0 +1,37 @@
+header a {
+    color: black;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: limegreen;
+}
+
+nav {
+    background-color: rgb(22, 22, 22);
+}
+
+a.nav-link {
+    color: lightgreen;
+    font-weight: 600;
+}
+
+a.nav-link:hover {
+    color: limegreen;
+}
+
+footer {
+    background-color: rgb(22, 22, 22);
+    color: whitesmoke;
+    min-height: 50px;
+}
+
+footer a {
+    color: lightgreen;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: limegreen;
+}

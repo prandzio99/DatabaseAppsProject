@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static '/styles/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="contains-form">
+    <h1 class="display-4">Add/Edit a book</h1>
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        {{form.title|as_crispy_field}}
+        {{form.author|as_crispy_field}}
+        {{form.publisher|as_crispy_field}}
+        <div class="row">
+            <div class="col">
+                {{form.release_year|as_crispy_field}}
+            </div>
+            <div class="col">
+                {{form.rating|as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <button type="submit" class="btn btn-success btn-block btn-lg">SUBMIT</button>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'book_list' %}" class="btn btn-danger btn-block btn-lg">CANCEL</a>
+            </div>
+        </div>
+    </form>
+    <p class="subscript">If your desired author or publisher are missing, add them.</p>
+</div>
+
+{% endblock %}

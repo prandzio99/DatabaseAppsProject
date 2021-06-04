@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static '/styles/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid" style="background-color: white;">
+  <div class="container">
+    <h1 class="display-3">Welcome to myBooks!</h1>
+    <p class="lead">Your personal space to organize your reads.</p>
+    <a href="{% url 'book_list' %}"><button>Go to books</button></a>
+  </div>
+</div>
+{% endblock %}
